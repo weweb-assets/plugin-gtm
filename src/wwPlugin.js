@@ -1,7 +1,7 @@
 /* wwEditor:start */
 import './components/SettingsEdit.vue';
 import './components/SettingsSummary.vue';
-import './components/SendEvent.vue';
+import './components/PushEvent.vue';
 // import './components/SetOptions.vue';
 // import './components/GetValue.vue';
 // import './components/Consent.vue';
