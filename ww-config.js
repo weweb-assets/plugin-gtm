@@ -18,30 +18,7 @@ export default {
             getIsValid({ event }) {
                 return !!event;
             },
+            onSave: 'onLoad'
         },
-        // {
-        //     name: 'Set Options',
-        //     code: 'setOptions',
-        //     /* wwEditor:start */
-        //     edit: () => import('./src/components/SetOptions.vue'),
-        //     getIsValid({ event }) {
-        //         return !!event;
-        //     },
-        //     /* wwEditor:end */
-        // },
-        // {
-        //     name: 'Get Value',
-        //     code: 'getValue',
-        //     /* wwEditor:start */
-        //     edit: () => import('./src/components/GetValue.vue'),
-        //     /* wwEditor:end */
-        // },
-        // {
-        //     name: 'Consent',
-        //     code: 'consent',
-        //     /* wwEditor:start */
-        //     edit: () => import('./src/components/Consent.vue'),
-        //     /* wwEditor:end */
-        // },
     ],
 };

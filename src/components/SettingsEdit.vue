@@ -1,7 +1,7 @@
 <template>
     <wwEditorFormRow required label="Container ID">
         <template #append-label>
-            <a class="ww-link" href="https://support.google.com/tagmanager/answer/6103696?hl=en#:~:text=In%20Tag%20Manager%2C%20click%20Workspace,as%20%22GTM%2DXXXXXX%22" target="_blank">
+            <a class="ww-editor-link ml-2" href="https://support.google.com/tagmanager/answer/6103696?hl=en#:~:text=In%20Tag%20Manager%2C%20click%20Workspace,as%20%22GTM%2DXXXXXX%22" target="_blank">
                 Find it here
             </a>
         </template>
@@ -9,7 +9,7 @@
             type="text"
             name="container-id"
             placeholder="GTM-XXXXXXXX"
-            :model-value="settings.publicData.containerId"
+            :model-value="settings.publicData.containerId || ''"
             large
             @update:modelValue="changeContainerId"
         />
