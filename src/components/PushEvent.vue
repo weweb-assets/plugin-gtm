@@ -2,10 +2,10 @@
     <wwEditorInputRow
         label="Event variables"
         type="array"
-        :model-value="headers"
+        :model-value="event"
         bindable
         @update:modelValue="setEvent"
-        @add-item="setHeaders([...(headers || []), {}])"
+        @add-item="setEvent([...event, {}])"
     >
         <template #default="{ item, setItem }">
             <wwEditorInputRow
