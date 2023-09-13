@@ -6,6 +6,7 @@ export default {
             getIsValid(settings) {
                 return !!settings.publicData.containerId;
             },
+            onSave: 'onLoad'
         },
     },
     actions: [
@@ -18,7 +19,6 @@ export default {
             getIsValid({ event }) {
                 return !!event;
             },
-            onSave: 'onLoad'
         },
     ],
 };
