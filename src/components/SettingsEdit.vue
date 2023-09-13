@@ -8,8 +8,8 @@
         <wwEditorInputText
             type="text"
             name="container-id"
-            placeholder="Enter a container id"
-            :model-value="settings.publicData.tagId"
+            placeholder="GTM-XXXXXXXX"
+            :model-value="settings.publicData.containerId"
             large
             @update:modelValue="changeContainerId"
         />

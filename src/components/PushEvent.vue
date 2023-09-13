@@ -1,12 +1,33 @@
 <template>
     <wwEditorInputRow
-        label="Event"
-        type="query"
-        :model-value="event"
-        placeholder="Enter the event"
+        label="Event variables"
+        type="array"
+        :model-value="headers"
         bindable
         @update:modelValue="setEvent"
-    />
+        @add-item="setHeaders([...(headers || []), {}])"
+    >
+        <template #default="{ item, setItem }">
+            <wwEditorInputRow
+                type="query"
+                :model-value="item.key"
+                label="Key"
+                placeholder="Enter a key"
+                bindable
+                small
+                @update:modelValue="setItem({ ...item, key: $event })"
+            />
+            <wwEditorInputRow
+                type="query"
+                :model-value="item.value"
+                label="Value"
+                placeholder="Enter a value"
+                bindable
+                small
+                @update:modelValue="setItem({ ...item, value: $event })"
+            />
+        </template>
+    </wwEditorInputRow>
 </template>
 
 <script>
@@ -18,7 +39,7 @@ export default {
     emits: ['update:args'],
     computed: {
         event() {
-            return this.args.event;
+            return this.args.event || [];
         },
     },
     methods: {

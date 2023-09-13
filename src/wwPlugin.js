@@ -2,9 +2,6 @@
 import './components/SettingsEdit.vue';
 import './components/SettingsSummary.vue';
 import './components/PushEvent.vue';
-// import './components/SetOptions.vue';
-// import './components/GetValue.vue';
-// import './components/Consent.vue';
 /* wwEditor:end */
 
 export default {
@@ -22,11 +19,13 @@ export default {
     /*=============================================m_ÔÔ_m=============================================\
         Gtag API
     \================================================================================================*/
-    pushEvent({ event, eventOptions = {} }) {
+    pushEvent({ event }) {
         /* wwEditor:start */
         if (!this.containerId) throw new Error('Container ID is missing.');
         /* wwEditor:end */
-        if (!this.containerId) return;
-        wwLib.getFrontWindow().dataLayer.push({...event});
+        if (!this.containerId || !Array.isArray(event)) return;
+        wwLib.getFrontWindow().dataLayer.push(
+            event.reduce((result, variable) => ({...result, [variable.key]: variable.value}), {})
+        );
     },
 };
