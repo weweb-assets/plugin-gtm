@@ -7,7 +7,7 @@ import './components/PushEvent.vue';
 export default {
     containerId: null,
     async onLoad(settings) {
-        this.containerId = settings.publicData.containerId;
+        this.containerId = this.getCurrentContainer();
         if (!this.containerId) return;
         wwLib.getFrontWindow().dataLayer = wwLib.getFrontWindow().dataLayer || [];
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -17,7 +17,7 @@ export default {
             })(wwLib.getFrontWindow(),wwLib.getFrontDocument(),'script','dataLayer',this.containerId);
     },
     /*=============================================m_ÔÔ_m=============================================\
-        Gtag API
+        GTM API
     \================================================================================================*/
     pushEvent({ event }) {
         /* wwEditor:start */
@@ -28,4 +28,19 @@ export default {
             event.reduce((result, variable) => ({...result, [variable.key]: variable.value}), {})
         );
     },
+
+    getCurrentContainer() {
+        switch (wwLib.globalContext.browser.environment) {
+            case 'editor':
+                return this.settings.publicData.containerIdEditor;
+            case 'preview':
+                return this.settings.publicData.containerIdProd;
+            case 'staging':
+                return this.settings.publicData.containerIdStaging;
+            case 'production':
+                return this.settings.publicData.containerIdProd;
+            default:
+                return null;
+        }
+    }
 };
