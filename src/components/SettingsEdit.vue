@@ -16,6 +16,7 @@
         label="In production"
         @update:modelValue="setConfig('containerIdProd', $event)"
         large
+        required
     />
     <wwEditorInputRow
         type="query"

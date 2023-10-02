@@ -32,11 +32,11 @@ export default {
     getCurrentContainer() {
         switch (wwLib.globalContext.browser.environment) {
             case 'editor':
-                return this.settings.publicData.containerIdEditor;
+                return this.settings.publicData.containerIdEditor || this.settings.publicData.containerIdProd;
             case 'preview':
                 return this.settings.publicData.containerIdProd;
             case 'staging':
-                return this.settings.publicData.containerIdStaging;
+                return this.settings.publicData.containerIdStaging || this.settings.publicData.containerIdProd;
             case 'production':
                 return this.settings.publicData.containerIdProd;
             default:
