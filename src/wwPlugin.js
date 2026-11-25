@@ -6,6 +6,11 @@ import './components/PushEvent.vue';
 
 export default {
     containerId: null,
+    /* wwEditor:start */
+    onPreviewSettingsChanged() {
+        if (this.getCurrentContainer() !== this.containerId) return this.onLoad();
+    },
+    /* wwEditor:end */
     async onLoad(settings) {
         this.containerId = this.getCurrentContainer();
         if (!this.containerId) return;

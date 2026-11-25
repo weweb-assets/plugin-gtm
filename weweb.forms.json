@@ -1,0 +1,80 @@
+{
+    "schemaVersion": 1,
+    "settings": {
+        "groups": [
+            {
+                "key": "container",
+                "label": "Container ID"
+            }
+        ],
+        "fields": [
+            {
+                "key": "containerIdProd",
+                "type": "text",
+                "storage": "publicData",
+                "label": "In production",
+                "placeholder": "GTM-XXXXXXXX",
+                "required": true,
+                "group": "container"
+            },
+            {
+                "key": "containerIdStaging",
+                "type": "text",
+                "storage": "publicData",
+                "label": "In staging",
+                "placeholder": "GTM-XXXXXXXX",
+                "group": "container"
+            },
+            {
+                "key": "containerIdEditor",
+                "type": "text",
+                "storage": "publicData",
+                "label": "In editor",
+                "placeholder": "GTM-XXXXXXXX",
+                "group": "container"
+            }
+        ],
+        "summary": [
+            {
+                "field": "containerIdProd"
+            }
+        ]
+    },
+    "actions": [
+        {
+            "name": "Push Event",
+            "code": "pushEvent",
+            "validation": "requiredFields",
+            "form": {
+                "fields": [
+                    {
+                        "key": "event",
+                        "type": "list",
+                        "label": "Event variables",
+                        "bindable": true,
+                        "required": true,
+                        "item": {
+                            "type": "record",
+                            "fields": [
+                                {
+                                    "key": "key",
+                                    "type": "text",
+                                    "label": "Key",
+                                    "bindable": true,
+                                    "placeholder": "Enter a key"
+                                },
+                                {
+                                    "key": "value",
+                                    "type": "text",
+                                    "label": "Value",
+                                    "bindable": true,
+                                    "placeholder": "Enter a value"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
