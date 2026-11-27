@@ -8,7 +8,7 @@ export default {
     containerId: null,
     /* wwEditor:start */
     onPreviewSettingsChanged() {
-        if (this.getCurrentContainer() !== this.containerId) return this.onLoad();
+        if (this.getCurrentContainer() !== this.containerId) wwLib.getFrontWindow().location.reload();
     },
     /* wwEditor:end */
     async onLoad(settings) {
